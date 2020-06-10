@@ -1,5 +1,5 @@
 import React from 'react';
-import './default.css';
+import './default.scss';
 
 type BoxProps = {
   media?: number[];

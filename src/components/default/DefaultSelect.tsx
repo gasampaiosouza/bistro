@@ -1,5 +1,5 @@
 import React from 'react';
-import './default.css';
+import './default.scss';
 
 import Select from 'react-select';
 import { Theme } from '../../../node_modules/@types/react-select';

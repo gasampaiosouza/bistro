@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import '../../general.scss';
+
+.btn {
+  cursor: pointer;
+
+  padding: 20px 30px;
+  background: $main;
+  color: #fff;
+  box-shadow: 5px 5px 15px $main-shadow;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  transition-property: opacity, transform;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: lighten($color: $main, $amount: 10);
+    transform: translateY(-5px);
+  }
+}
+
+.btn,
+.input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+/* Input */
+
+.inputContainer {
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+
+  .input {
+    width: 100%;
+    box-shadow: 5px 5px 15px $dark-shadow;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+
+    padding: 15px 20px;
+    transition-property: border-radius;
+    transition: 0.2s ease-in-out;
+
+    &::placeholder {
+      opacity: 0.75;
+    }
+
+    &:focus,
+    &:valid {
+      border-radius: 5px 5px 0 0;
+
+      & + .after {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .after {
+    position: absolute;
+    right: 0;
+
+    height: 3px;
+    bottom: -3px;
+
+    background: $main;
+    width: 0;
+
+    transition-property: width;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+/* box */
+
+.box--container {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  padding: 30px 0;
+  box-shadow: 5px 5px 15px $dark-shadow;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .quantity {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    font-weight: 900;
+    color: $main;
+    font-size: 25px;
+  }
+
+  .name--container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .item--name {
+      font-size: 1.75rem;
+      font-weight: 900;
+    }
+  }
+
+  .media--container {
+    width: 100%;
+
+    padding-top: 25px;
+
+    text-align: center;
+
+    .media--title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+
+      opacity: 0.75;
+    }
+
+    .media {
+      font-size: 1rem;
+      opacity: 0.5;
+    }
+  }
+}
