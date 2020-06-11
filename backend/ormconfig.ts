@@ -25,5 +25,5 @@ export = {
     entitiesDir:  path.join('src','database','entity'),
     subscribersDir: path.join('src','database','subscriber')
   },
-  synchronize: true,
+  synchronize: false,
 }
