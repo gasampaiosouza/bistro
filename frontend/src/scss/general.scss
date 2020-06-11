@@ -11,6 +11,42 @@ $main-shadow: rgba(255, 159, 28, 0.5);
   font-family: Fira Sans;
 }
 
+a {
+  text-decoration: none;
+  color: $dark;
+}
+
+li a {
+  transition-property: color, background;
+  transition: 0.2s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: $main;
+
+    transition-property: width;
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover {
+    color: $main !important;
+  }
+
+  &:hover::after {
+    left: 0;
+    width: 100%;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
 body {
   color: var(--dark);
   overflow: hidden;
@@ -24,5 +60,21 @@ body {
     }
 
     $counter: $counter + 0.15;
+  }
+}
+
+.logo {
+  float: left;
+  padding: 10px 20px;
+  font-weight: 900;
+  text-decoration: none;
+  color: $main;
+  font-size: 30px;
+  transition-property: color, transform;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: lighten($color: $main, $amount: 10);
+    transform: translateY(-5px) rotate(-5deg);
   }
 }

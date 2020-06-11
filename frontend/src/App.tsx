@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.scss';
-
-import Header from './components/default/Header';
+import Routes from './Routes';
 
 function App() {
   return (
-    <div className="container">
-      <Header />
-    </div>
+    <React.Fragment>
+      <Routes />
+    </React.Fragment>
   );
 }
 

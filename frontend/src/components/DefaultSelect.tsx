@@ -1,8 +1,7 @@
 import React from 'react';
 import './default.scss';
 
-import Select from 'react-select';
-import { Theme } from '../../../node_modules/@types/react-select';
+import Select, { Theme } from 'react-select';
 
 type SelectProps = {
   options: object[];
