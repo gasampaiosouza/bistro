@@ -1,0 +1,28 @@
+$dark: #474960;
+$dark-shadow: rgba(71, 73, 96, 0.15);
+
+$main: #ff9f1c;
+$main-shadow: rgba(255, 159, 28, 0.5);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Fira Sans;
+}
+
+body {
+  color: var(--dark);
+  overflow: hidden;
+}
+
+@mixin addAnimation($element_name, $animation_name, $elements_number) {
+  $counter: 0;
+  @for $i from 1 through $elements_number {
+    &:nth-child(#{$i}) {
+      animation: $animation_name #{0.2 + $counter}s ease-in-out;
+    }
+
+    $counter: $counter + 0.15;
+  }
+}

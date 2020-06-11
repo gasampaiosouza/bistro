@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
-@import '../../general.scss';
+@import '../../scss/general.scss';
+@import '../../scss/animations.scss';
 
 .btn {
   cursor: pointer;
@@ -30,7 +31,7 @@
   border-radius: 5px;
 }
 
-/* Input */
+// Input
 
 .inputContainer {
   position: relative;
@@ -77,7 +78,7 @@
   }
 }
 
-/* box */
+// box
 
 .box--container {
   position: relative;
@@ -133,6 +134,214 @@
     .media {
       font-size: 1rem;
       opacity: 0.5;
+    }
+  }
+}
+
+// Header
+
+.header {
+  padding: 15px 50px;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  li a {
+    position: relative;
+    color: $dark;
+    display: block;
+    margin-left: 100px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 17px;
+
+    transition-property: color, background;
+    transition: 0.2s ease-in-out;
+
+    &::after {
+      content: '';
+      // display: block !important;
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 0;
+      height: 3px;
+      background: $main;
+
+      transition-property: width;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      color: $main;
+    }
+
+    &:hover::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .logo {
+    float: left;
+    padding: 10px 20px;
+    font-weight: 900;
+    text-decoration: none;
+    color: $main;
+    font-size: 30px;
+    transition-property: color, transform;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: lighten($color: $main, $amount: 10);
+      transform: translateY(-5px) rotate(-5deg);
+    }
+  }
+
+  .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+
+  /* menu icon */
+
+  .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+
+    .navicon {
+      background: $main;
+      display: block;
+      height: 5px;
+      position: relative;
+      transition: background 0.2s ease-out;
+      width: 25px;
+      border-radius: 10px;
+      margin-right: 10px;
+
+      &:before,
+      &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+        border-radius: 10px;
+        transform: translateX(50%);
+      }
+
+      &:before {
+        top: 10px;
+      }
+
+      &:after {
+        top: -10px;
+      }
+    }
+  }
+
+  /* menu btn */
+
+  .menu-btn {
+    display: none;
+
+    &:checked ~ .menu {
+      max-height: 240px;
+    }
+
+    &:checked ~ .menu-icon .navicon {
+      background: transparent;
+
+      &:before {
+        background: $main;
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        background: $main;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:checked ~ .menu-icon:not(.steps) .navicon {
+      &:before,
+      &:after {
+        top: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .header li {
+    float: left;
+
+    a {
+      padding: 20px 0 0 0;
+    }
+  }
+
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    padding: 15px 0 0 0;
+
+    ul {
+      overflow: hidden !important;
+
+      a {
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+// default classes
+
+.appear {
+  animation: appear 0.5s ease-in-out;
+  @include addAnimation(&, appear, 5);
+
+  //$element_name, $animation_name, $elements_number
+}
+
+.active {
+  li {
+    @include addAnimation(&, appear, 4);
+  }
+
+  a {
+    margin: 0 !important;
+
+    &:hover {
+      background: $main;
+      color: #fff !important;
+    }
+
+    &::after {
+      content: '';
+      display: none;
     }
   }
 }
