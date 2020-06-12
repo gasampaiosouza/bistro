@@ -18,7 +18,7 @@ export default function Intro() {
         title={text[0].title}
         desc={text[0].desc}
       />
-      <Cards content={card} />
+      <Cards />
       <TextSection title={text[1].title} desc={text[1].desc} />
       <TextSection bg={true} title={text[2].title} desc={text[2].desc} />
       <TextSection
