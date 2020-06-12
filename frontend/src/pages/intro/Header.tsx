@@ -18,7 +18,7 @@ const Header = () => {
 
         <li>
           <Link to="/register" className="noStyle">
-            <Button text="Cadastrar-se" />
+            <Button text="Cadastre-se" />
           </Link>
         </li>
       </ul>
