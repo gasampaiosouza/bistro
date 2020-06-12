@@ -1,14 +1,23 @@
 import React from 'react';
 
-export default function Cards() {
+interface CardsType {
+  content: {
+    title: string;
+    desc: string;
+  }[];
+}
+
+export default function Cards({ content }: CardsType) {
   return (
     <div className="container cards--container">
-      <div className="card">
-        {/*
-        <h1 className="card--title">Titulo pro card</h1>
-        <p className="card--desc">A descrição do card</p>
-      */}
-      </div>
+      {content.map((card, i) => {
+        return (
+          <div className="card" key={i}>
+            <h1 className="card--title">{card.title}</h1>
+            <p className="card--desc">{card.desc}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

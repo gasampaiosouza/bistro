@@ -78,44 +78,20 @@
   }
 }
 
-.cards--container {
-  height: auto !important;
-  padding-bottom: 100px;
+// CARD CSS
 
-  @include flex(row, space-around);
-  flex-wrap: wrap;
+.cards--container {
+  // container style
 
   .card {
-    padding: 50px 25px;
-    user-select: none;
-    width: 425px;
-
-    margin: 25px 0;
-    padding-bottom: 50px;
-
-    box-shadow: 5px 5px 15px rgba($dark, 0.15);
-
-    border-bottom: 5px solid $main;
-    border-radius: 5px;
-    text-align: center;
-    transition-property: transform, box-shadow, border-bottom;
-    transition: 0.2s ease-in-out;
-
-    @include addAnimation(&, appear-bottom, 3);
-
-    &:hover {
-      box-shadow: 5px 5px 15px rgba($main, 0.25);
-      transform: translateY(-15px);
-      border-bottom: 5px solid rgba($main, 0.5);
-    }
+    // each card style
 
     .card--title {
-      font-weight: 900;
-      font-size: 1.5rem;
+      // card title style
     }
 
     .card--desc {
-      @extend .desc;
+      // card desc style
     }
   }
 }
