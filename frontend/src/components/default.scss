@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
 @import '../scss/general.scss';
 @import '../scss/animations.scss';
+@import '../scss/functions.scss';
 
 .btn {
   cursor: pointer;
@@ -29,6 +30,7 @@
   outline: none;
   font-size: 18px;
   border-radius: 5px;
+  animation: appear-bottom 0.5s ease-in-out;
 }
 
 // Input
@@ -88,10 +90,7 @@
   box-shadow: 5px 5px 15px $dark-shadow;
   border-radius: 5px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(column, space-between);
 
   .quantity {
     position: absolute;
@@ -106,9 +105,7 @@
   .name--container {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(inherit, center);
 
     .item--name {
       font-size: 1.75rem;
@@ -279,7 +276,7 @@
 
 .appear {
   animation: appear 0.5s ease-in-out;
-  @include addAnimation(&, appear, 5);
+  @include addAnimation(&, appear-right, 5);
 
   //$element_name, $animation_name, $elements_number
 }

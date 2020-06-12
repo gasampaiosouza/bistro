@@ -1,3 +1,23 @@
+@import '../../scss/functions.scss';
+@import '../../scss/general.scss';
+@import '../../scss/animations.scss';
+
+.container {
+  width: 100%;
+  height: 40vh;
+  color: $dark;
+}
+
+.desc {
+  margin-top: 25px;
+  line-height: 30px;
+  opacity: 0.75;
+}
+
+.row {
+  flex-direction: row !important;
+}
+
 #header {
   width: 100%;
   height: 100px;
@@ -11,6 +31,11 @@
 
   justify-content: space-between;
   align-items: center;
+  animation: appear-top $animation-time ease-in-out;
+
+  .btn {
+    animation: inherit;
+  }
 
   ul {
     display: flex;
@@ -29,7 +54,83 @@
   }
 }
 
+.text--section {
+  margin: 50px 0;
+  @include flex(column, space-around);
+
+  .text--container {
+    padding: 0 25px;
+    max-width: 720px;
+    @include flex(column, center);
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      animation: appear-top $animation-time ease-in-out;
+    }
+
+    p {
+      @extend .desc;
+      text-align: center;
+      animation: appear-left $animation-time ease-in-out;
+    }
+  }
+}
+
+.cards--container {
+  height: auto !important;
+  padding-bottom: 100px;
+
+  @include flex(row, space-around);
+  flex-wrap: wrap;
+
+  .card {
+    padding: 50px 25px;
+    user-select: none;
+    width: 425px;
+
+    margin: 25px 0;
+    padding-bottom: 50px;
+
+    box-shadow: 5px 5px 15px rgba($dark, 0.15);
+
+    border-bottom: 5px solid $main;
+    border-radius: 5px;
+    text-align: center;
+    transition-property: transform, box-shadow, border-bottom;
+    transition: 0.2s ease-in-out;
+
+    @include addAnimation(&, appear-bottom, 3);
+
+    &:hover {
+      box-shadow: 5px 5px 15px rgba($main, 0.25);
+      transform: translateY(-15px);
+      border-bottom: 5px solid rgba($main, 0.5);
+    }
+
+    .card--title {
+      font-weight: 900;
+      font-size: 1.5rem;
+    }
+
+    .card--desc {
+      @extend .desc;
+    }
+  }
+}
+
+.footer--container {
+  background: $dark;
+  color: #fff;
+}
+
+// media query
 @media (max-width: 810px) {
+  .row {
+    flex-direction: column !important;
+  }
+
   #header {
     height: auto;
     flex-direction: column;
@@ -40,7 +141,9 @@
     }
 
     ul {
-      flex-direction: column-reverse;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
 
       li {
         margin: 15px 0;

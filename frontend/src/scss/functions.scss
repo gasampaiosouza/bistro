@@ -1,0 +1,22 @@
+@mixin addAnimation(
+  $element_name,
+  $animation_name,
+  $elements_number,
+  $delay: 0.15
+) {
+  $counter: 0;
+  @for $i from 1 through $elements_number {
+    &:nth-child(#{$i}) {
+      animation: $animation_name #{0.25 + $counter}s ease-in-out;
+    }
+
+    $counter: $counter + $delay;
+  }
+}
+
+@mixin flex($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: center;
+}

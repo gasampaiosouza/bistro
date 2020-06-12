@@ -1,4 +1,15 @@
-@keyframes appear {
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes appear-right {
   from {
     opacity: 0;
     transform: translateX(25px);
@@ -9,13 +20,24 @@
   }
 }
 
-@keyframes disappear {
+@keyframes appear-top {
   from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
     opacity: 1;
     transform: none;
   }
-  to {
+}
+
+@keyframes appear-bottom {
+  from {
     opacity: 0;
     transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
