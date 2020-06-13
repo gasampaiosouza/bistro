@@ -1,0 +1,3 @@
+- produtos: limite 30
+- unidades: litro (l), grama (g), unidade
+-
