@@ -1,0 +1,92 @@
+@import '../../../scss/general.scss';
+@import '../../../scss/functions.scss';
+
+.container {
+  width: 100%;
+  // height: 100vh;
+}
+
+.title {
+  text-transform: unset;
+}
+
+.top--container {
+  height: 100px;
+  @include flex(column, space-between);
+  align-items: center;
+
+  .sub--title {
+    font-size: 1rem;
+    opacity: 0.75;
+    font-weight: 500;
+  }
+}
+
+.inputTop--container,
+.inputBottom--container {
+  @include flex(column, 0);
+}
+
+.inputTop--container {
+  margin-bottom: 75px;
+}
+
+.form--container {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+
+  @include flex(column, center);
+
+  .backArrow--container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  .input--container {
+    margin: 15px 0;
+
+    &:nth-child(1) {
+      margin: 10px 0 15px 0;
+    }
+  }
+
+  .btn {
+    margin-top: 25px;
+  }
+
+  .select--container {
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .form--container {
+    width: 100%;
+    padding: 50px 25px;
+    align-items: center;
+  }
+
+  .inputTop--container {
+    margin: 0;
+  }
+
+  .input--container,
+  .select--container {
+    margin: 15px 0 !important;
+    width: calc(100% + 100px) !important;
+  }
+
+  .top--container {
+    height: auto !important;
+    align-items: center;
+
+    .backArrow--container {
+      position: initial !important;
+      margin: 25px;
+    }
+  }
+}

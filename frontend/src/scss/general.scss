@@ -80,3 +80,26 @@ ul {
     transform: translateY(-5px) rotate(-5deg);
   }
 }
+
+.defaultTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $dark;
+}
+
+.color {
+  color: $main;
+}
+
+.title {
+  color: $dark;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 45px;
+}
+
+.row {
+  flex-direction: row !important;
+}

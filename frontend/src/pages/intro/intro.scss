@@ -4,7 +4,7 @@
 
 .container {
   width: 100%;
-  height: 40vh;
+  height: 40vh !important;
   color: $dark;
 }
 
@@ -34,18 +34,6 @@ hr {
   border: 1px solid transparent;
   box-shadow: 2px 0 5px rgba($main, 1);
   margin: 25px 0;
-}
-
-.row {
-  flex-direction: row !important;
-}
-
-.title {
-  color: $dark;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 900;
-  text-transform: uppercase;
 }
 
 #header {
@@ -89,6 +77,10 @@ hr {
   margin: 50px 0;
   @include flex(column, center);
 
+  &:nth-child(2) {
+    height: 100vh !important;
+  }
+
   .text--container {
     padding: 0 25px;
     max-width: 720px;
@@ -105,7 +97,7 @@ hr {
 // CARD
 
 .card--container {
-  @include flex(row, center);
+  @include flex(row, space-around);
   margin: 50px 0;
   height: auto;
 
@@ -141,6 +133,7 @@ hr {
     font-weight: 900;
     font-size: 1.5rem;
     text-align: center;
+    color: $dark;
   }
 
   .card--desc {
@@ -159,7 +152,7 @@ hr {
 }
 
 .footer--container {
-  height: auto;
+  height: auto !important;
   padding: 50px 0;
   @include flex(column, space-around);
   background: $dark;

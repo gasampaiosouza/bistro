@@ -25,7 +25,7 @@ export default function Test({ content }: CardsType) {
         <h1 className="title">Por que nós?</h1>
       </ScrollAnimation>
 
-      <div className="container card--container">
+      <div className="card--container">
         <ScrollAnimation animateIn="fadeInUp" offset={300} animateOnce={true}>
           {card(content[0])}
         </ScrollAnimation>
@@ -40,6 +40,7 @@ export default function Test({ content }: CardsType) {
             {card(content[2])}
           </ScrollAnimation>
         </div>
+
         <ScrollAnimation animateIn="fadeInUp" offset={300} animateOnce={true}>
           {card(content[3])}
         </ScrollAnimation>

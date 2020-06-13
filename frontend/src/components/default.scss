@@ -27,44 +27,47 @@
 .btn,
 .input {
   border: none;
-  outline: none;
+  outline: none !important;
   font-size: 18px;
   border-radius: 5px;
 }
 
 // Input
 
-.inputContainer {
+.input--container {
   position: relative;
   background: #fff;
   border-radius: 5px;
+  max-width: 420px;
+  min-width: 200px;
 
   .input {
     width: 100%;
-    box-shadow: 5px 5px 15px rgba($dark, 0.25);
+    box-shadow: 5px 5px 15px rgba($dark, 0.15);
     font-weight: 400;
     letter-spacing: -0.5px;
+    font-size: 16px;
 
     padding: 15px 20px;
     transition-property: border-radius;
     transition: 0.2s ease-in-out;
 
     &::placeholder {
-      opacity: 0.75;
+      opacity: 0.35;
     }
 
     &:focus,
     &:valid {
       border-radius: 5px 5px 0 0;
 
-      & + .after {
+      & + .span--after {
         left: 0;
         width: 100%;
       }
     }
   }
 
-  .after {
+  .span--after {
     position: absolute;
     right: 0;
 
@@ -76,6 +79,32 @@
 
     transition-property: width;
     transition: 0.5s ease-in-out;
+  }
+}
+
+// back arrow
+
+.backArrow--container {
+  cursor: pointer;
+  width: 125px;
+  padding: 15px 10px;
+  @include flex(row-reverse, space-between);
+  border-radius: 5px;
+  animation: appear-top 0.5s ease-in-out;
+
+  &:hover > .defaultTitle,
+  &:hover > .arrow {
+    color: $main !important;
+  }
+
+  .defaultTitle {
+    transition: 0.2s ease-in-out;
+  }
+
+  .arrow {
+    transition: 0.2s ease-in-out;
+    color: $dark;
+    font-size: 25px;
   }
 }
 
