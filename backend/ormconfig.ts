@@ -1,5 +1,5 @@
-import path from 'path'
-require('dotenv').config()
+import path from 'path';
+require('dotenv').config();
 
 export = {
   type: process.env.DB_DIALECT,
@@ -9,21 +9,13 @@ export = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   logging: false,
-  entities: [
-    path.join('src','database','entity','**','*.ts'),
-    
-  ],
-  migrations: [
-    path.join('src','database','migrations','*.ts')
-    
-  ],
-  subscribers: [
-    path.join('src','database','subscriber','**','*.ts'),
- ],
+  entities: [path.join('src', 'database', 'entity', '**', '*.ts')],
+  migrations: [path.join('src', 'database', 'migrations', '*.ts')],
+  subscribers: [path.join('src', 'database', 'subscriber', '**', '*.ts')],
   cli: {
-    migrationsDir: path.join('src','database','migrations'),
-    entitiesDir:  path.join('src','database','entity'),
-    subscribersDir: path.join('src','database','subscriber')
+    migrationsDir: path.join('src', 'database', 'migrations'),
+    entitiesDir: path.join('src', 'database', 'entity'),
+    subscribersDir: path.join('src', 'database', 'subscriber'),
   },
   synchronize: false,
-}
+};

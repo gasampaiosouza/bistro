@@ -14,8 +14,38 @@
   opacity: 0.75;
 }
 
+.after {
+  position: relative;
+
+  &::after {
+    content: '';
+    background: $main;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 35%;
+    height: 5px;
+    border-radius: 10px;
+  }
+}
+
+hr {
+  width: 100%;
+  border: 1px solid transparent;
+  box-shadow: 2px 0 5px rgba($main, 1);
+  margin: 25px 0;
+}
+
 .row {
   flex-direction: row !important;
+}
+
+.title {
+  color: $dark;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 #header {
@@ -55,49 +85,82 @@
 }
 
 .text--section {
+  text-align: center;
   margin: 50px 0;
-  @include flex(column, space-around);
+  @include flex(column, center);
 
   .text--container {
     padding: 0 25px;
     max-width: 720px;
     @include flex(column, center);
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      animation: appear-top $animation-time ease-in-out;
-    }
-
     p {
       @extend .desc;
       text-align: center;
-      animation: appear-left $animation-time ease-in-out;
+      // animation: appear-left $animation-time ease-in-out;
     }
   }
 }
 
-// CARD CSS
+// CARD
 
-.cards--container {
-  // container style
+.card--container {
+  @include flex(row, center);
+  margin: 50px 0;
+  height: auto;
 
   .card {
-    // each card style
+    user-select: none;
+    height: auto;
+    padding: 25px;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba($dark, 0.15);
+    border-bottom: 5px solid $main;
+    // @include addAnimation(&, appear-bottom, 3);
 
-    .card--title {
-      // card title style
+    transition-property: transform, box-shadow, border-bottom;
+    transition: 0.2s ease-in-out;
+
+    & > .card--desc {
+      text-align: left;
     }
 
-    .card--desc {
-      // card desc style
+    &:hover {
+      transform: translateY(-15px);
+      border-bottom: 5px solid rgba($main, 0.5);
+      box-shadow: 5px 5px 15px rgba($main, 0.25);
+    }
+  }
+
+  .center .card--desc {
+    text-align: center;
+  }
+
+  .card--title {
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card--desc {
+    @extend .desc;
+    text-align: center;
+  }
+
+  .center .card {
+    &:nth-child(1) {
+      margin-bottom: 100px;
+    }
+    &:nth-child(2) {
+      margin-top: 100px;
     }
   }
 }
 
 .footer--container {
-  height: 20vh;
+  height: auto;
+  padding: 50px 0;
   @include flex(column, space-around);
   background: $dark;
   color: #fff;
@@ -115,23 +178,52 @@
 }
 
 // media query
+@media screen and (max-width: 1100px) {
+  .center {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+  }
+
+  .center .card:nth-child(1),
+  .center .card:nth-child(2) {
+    margin: 25px 0 !important;
+  }
+
+  .card--container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .card {
+      max-width: 500px;
+    }
+  }
+}
+
 @media (max-width: 810px) {
-  .row {
-    flex-direction: column !important;
+  .text--section {
+    padding: 50px 0;
+    height: auto;
   }
 
   #header {
     height: auto;
     flex-direction: column;
     justify-content: center;
+    padding: 0;
+
+    hr {
+      display: block !important;
+    }
 
     .logo {
-      margin: 25px 0 10px 0;
+      margin-top: 25px;
     }
 
     ul {
       width: 100%;
-      flex-direction: row;
+      flex-direction: column-reverse;
       justify-content: space-around;
 
       li {
@@ -139,5 +231,9 @@
         font-size: 20px;
       }
     }
+  }
+
+  .row {
+    flex-direction: column !important;
   }
 }

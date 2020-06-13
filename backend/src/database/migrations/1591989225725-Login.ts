@@ -1,13 +1,13 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class Estoques1591915103263 implements MigrationInterface {
+export class Login1591989225725 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     queryRunner.createTable(
       new Table({
-        name: 'stocks',
+        name: 'logins',
         columns: [
           {
-            name: 'id_stocks',
+            name: 'id_logins',
             type: 'int',
             isPrimary: true,
             isNullable: false,
@@ -15,10 +15,16 @@ export class Estoques1591915103263 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'product_name',
+            name: 'email',
             type: 'varchar',
             isNullable: false,
-            length: '30',
+            length: '100',
+          },
+          {
+            name: 'password',
+            type: 'varchar',
+            isNullable: false,
+            length: '50',
           },
         ],
       })
@@ -26,6 +32,6 @@ export class Estoques1591915103263 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.dropTable('stocks');
+    queryRunner.dropTable('logins');
   }
 }
