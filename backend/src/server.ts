@@ -4,15 +4,10 @@ import routes from './routes';
 import { getConnectionOptions, createConnection, BaseEntity } from 'typeorm';
 
 
-let app = async () => {
+createConnection().then(async connection =>{
   const app = express();
-  const connectionOptions = await getConnectionOptions();
-  const connection = await createConnection(connectionOptions)
-  BaseEntity.useConnection(connection)
   app.use(cors());
   app.use(express.json())
   app.use(routes)
   app.listen(5000)
-}
-
-app()
+});
