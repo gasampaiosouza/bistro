@@ -1,11 +1,14 @@
 import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 export default function Footer() {
   return (
     <div className="container footer--container">
       <div className="footer--main">
-        <h1 className="logo">Bistrô.</h1>
-        <h3 className="slogan">A sua organização em nossas mãos!</h3>
+        <ScrollAnimation animateIn="fadeInDown" animateOnce={true}>
+          <h1 className="logo">Bistrô.</h1>
+        </ScrollAnimation>
+        <h3>A sua organização em nossas mãos!</h3>
       </div>
       <p className="copyright">© Todos os direitos reservados</p>
     </div>

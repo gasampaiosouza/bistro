@@ -1,10 +1,6 @@
 $dark: #474960;
-$dark-shadow: rgba(71, 73, 96, 0.15);
-
-$main: #ff9f1c;
-$main-shadow: rgba(255, 159, 28, 0.5);
-
-$animation-time: 0.5s;
+$main: #7ae582;
+$animation-time: 0.75s;
 
 * {
   margin: 0;
@@ -69,6 +65,7 @@ ul {
 }
 
 .logo {
+  user-select: none;
   float: left;
   padding: 10px 20px;
   font-weight: 900;
@@ -79,7 +76,30 @@ ul {
   transition: 0.2s ease-in-out;
 
   &:hover {
-    color: lighten($color: $main, $amount: 10);
+    color: lighten($main, 10);
     transform: translateY(-5px) rotate(-5deg);
   }
+}
+
+.defaultTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $dark;
+}
+
+.color {
+  color: $main;
+}
+
+.title {
+  color: $dark;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 45px;
+}
+
+.row {
+  flex-direction: row !important;
 }

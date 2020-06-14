@@ -36,6 +36,11 @@ const information = {
       desc:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus iaculis suspendisse et libero. Cursus consequat et etiam morbi augue in viverra',
     },
+    {
+      title: 'Organização',
+      desc:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus iaculis suspendisse et libero. Cursus consequat et etiam morbi augue in viverra',
+    },
   ],
 };
 

@@ -4,17 +4,18 @@ import './default.scss';
 import Select, { Theme } from 'react-select';
 
 type SelectProps = {
-  options: object[];
+  options: { value: string; label: string }[];
   width?: string;
   callback: any;
   placeholder?: string;
 };
 
-const DefaultSelect = (props: SelectProps) => {
-  // options!, width, callback!, placeholder
-
-  const options = props.options;
-
+const DefaultSelect = ({
+  options,
+  width,
+  callback,
+  placeholder,
+}: SelectProps) => {
   const customStyles = {
     // change colors
     option: (provided: object) => ({
@@ -37,12 +38,12 @@ const DefaultSelect = (props: SelectProps) => {
   }
 
   return (
-    <div className="selectContainer" style={{ width: props.width || '420px' }}>
+    <div className="select--container" style={{ width: width || '420px' }}>
       <Select
         className="select"
-        onChange={props.callback || ''}
+        onChange={callback || ''}
         options={options}
-        placeholder={props.placeholder || 'Select...'}
+        placeholder={placeholder || 'Select...'}
         theme={customTheme}
         styles={customStyles}
       />

@@ -6,23 +6,23 @@ type InputProps = {
   placeholder: string;
   value?: string;
   type?: string;
+  pattern?: string;
 };
 
-const Input = (props: InputProps) => {
-  // width, placeholder!, value, type
-
+const Input = ({ width, placeholder, value, type, pattern }: InputProps) => {
   return (
-    <div className="inputContainer" style={{ width: props.width || '420px' }}>
+    <div className="input--container" style={{ width: width || '420px' }}>
       <input
-        type={props.type || 'text'}
+        pattern={pattern}
+        type={type || 'text'}
         required
         autoComplete="off"
         spellCheck="false"
         className="input"
-        placeholder={props.placeholder}
-        defaultValue={props.value || ''}
+        placeholder={placeholder}
+        defaultValue={value || ''}
       />
-      <span className="after"></span>
+      <span className="span--after"></span>
     </div>
   );
 };
